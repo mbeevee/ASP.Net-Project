@@ -10,7 +10,7 @@ namespace SalesWebMvc.Data
     public class SeedingService
     {
         //Injeção de dependência do DBContext
-        private SalesWebMvcContext _context;
+        private readonly SalesWebMvcContext _context;
         public SeedingService(SalesWebMvcContext context)
         {
             _context = context;
