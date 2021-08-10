@@ -9,6 +9,8 @@ namespace SalesWebMvc.Services
     public class SellerService
     {
         private readonly SalesWebMvcContext _context;
+
+        //Injeção de dependência sempre adicionar o serviço no Startup no ConfigureServices
         public SellerService(SalesWebMvcContext context)
         {
             _context = context;
