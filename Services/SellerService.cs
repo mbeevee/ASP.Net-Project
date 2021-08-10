@@ -13,9 +13,17 @@ namespace SalesWebMvc.Services
         {
             _context = context;
         }
+        // Retorna todos os vendedores que tem no Banco de dados
         public List<Seller> FindAll()
         {
             return _context.Seller.ToList();
+        }
+        //Insere um novo vendedor no banco de dados
+        //Obs: No final de uma inserção sempre dar SaveChanges no context
+        public void Insert(Seller sl)
+        {
+            _context.Add(sl);
+            _context.SaveChanges();
         }
     }
 }
