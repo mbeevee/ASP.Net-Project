@@ -21,10 +21,20 @@ namespace SalesWebMvc.Services
             return _context.Seller.ToList();
         }
         //Insere um novo vendedor no banco de dados
-        //Obs: No final de uma inserção sempre dar SaveChanges no context
+        //Obs: No final de uma inserção ou remoção sempre dar SaveChanges no context
         public void Insert(Seller sl)
         {
             _context.Add(sl);
+            _context.SaveChanges();
+        }
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+        }
+        public void Remove(int id)
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
             _context.SaveChanges();
         }
     }
